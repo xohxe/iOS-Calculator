@@ -78,3 +78,19 @@ func intOrDouble(_ input: String) -> String {
     }
 }
 
+
+
+func intOrDouble2(_ input: Double) -> String {
+    
+  //  let floatNumber = Float(input) ?? 0
+    let floored = floor(input)
+    if input - floored == 0{
+        // Int
+        let convertInt = Int(floored)
+        return "\(convertInt)"
+    }else{
+        // Double
+        return "\(input)"
+    }
+}
+

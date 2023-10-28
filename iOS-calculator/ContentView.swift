@@ -161,14 +161,17 @@ struct ContentView: View {
             
             if button != .equal {
                 // 값 초기화
-                value = "0"
+               // value = "0"
+                value = "\(intOrDouble2(tempNumber))"
                 isButtonPressed = true
                 // 버튼 색상 변화
                 
             }
- 
         case .opposite:
             tempNumber = -(Double(value) ?? 0)
+            value = "\(tempNumber)"
+        case .percent:
+            tempNumber = Double(value) ?? 0 / 100
             value = "\(tempNumber)"
         case .clear:
             value = "0"
@@ -180,12 +183,18 @@ struct ContentView: View {
             }
         default:
             let result = button.rawValue
-            if value == "0"{
-                value = result
-            }else{
-                
-                value += result
+            switch buttonState {
+            case .plus, .minus, .multiple, .divide:
+                 value = result
+            default:
+                if value == "0"{
+                    value = result
+                }else{
+                    
+                    value += result
+                }
             }
+           
         }
         
     }
