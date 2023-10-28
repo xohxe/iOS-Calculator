@@ -7,19 +7,59 @@
 
 import Foundation
 import SwiftUI
+import UIKit
+
+extension UIDevice{
+    public var isiPhone: Bool{
+        if UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.phone{
+            return true
+        }
+        return false
+    }
+    public var isiPad: Bool{
+        if UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad{
+            return true
+        }
+        return false
+    }
+}
 
 
+let screenWidth = UIScreen.main.bounds.size.width
+ 
 // 버튼 크기 반응형
 func responsiveBtnWidth(button: ButtonType) -> CGFloat {
     switch button{
     case .zero:
-        return ((UIScreen.main.bounds.width - 5 * 10) / 4) * 2
+        if UIDevice.current.isiPhone{
+            return ((screenWidth - 5 * 10) / 4) * 2
+        }else if UIDevice.current.isiPad{
+            return ((400 - 5 * 10 * 0.7) / 4) * 2
+        }else{
+            return ((400 - 5 * 10 * 0.7) / 4) * 2
+        }
+        
     default:
-        return ((UIScreen.main.bounds.width - 5 * 10) / 4)
+        if UIDevice.current.isiPhone{
+            return ((screenWidth - 5 * 10) / 4)
+        }else if UIDevice.current.isiPad{
+            return ((400 - 5 * 10 * 0.7) / 4)
+        }else{
+            return ((400 - 5 * 10 * 0.7) / 4)
+        }
     }
 }
+ 
+
 func responsiveBtnHeight(button: ButtonType) -> CGFloat {
-    return ((UIScreen.main.bounds.width - 5 * 10) / 4)
+    if UIDevice.current.isiPhone{
+        return ((screenWidth - 5 * 10) / 4)
+    }else if UIDevice.current.isiPad{
+        return ((400 - 5 * 10 * 0.7) / 4)
+    }else{
+        return ((400 - 5 * 10 * 0.7) / 4)
+    }
+ 
 }
 
 
