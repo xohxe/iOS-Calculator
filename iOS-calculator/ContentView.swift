@@ -27,7 +27,8 @@ enum ButtonType : String{
     case divide = "÷"
     case percent = "%"
     case opposite = "⁺⁄₋"
-    case clear = "AC"
+    case clear = "C"
+    case allClear = "AC"
     
     // 배경색
     var backgroundColor : Color {
@@ -36,8 +37,7 @@ enum ButtonType : String{
             return Color("NumberButton")
         case .plus,.minus,.multiple, .divide,.equal:
            return Color.orange
-           
-        case .clear, .opposite, .percent:
+        case .clear, .opposite, .percent, .allClear:
             return Color.gray
         }
     }
@@ -47,7 +47,7 @@ enum ButtonType : String{
         switch self {
         case .one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .zero, .dot,.plus,.minus,.multiple, .divide,.equal:
             return Color.white
-        case .clear, .opposite, .percent:
+        case .clear, .opposite, .percent, .allClear:
             return Color.black
         }
     }
@@ -59,10 +59,14 @@ enum Operator{
     case plus, minus, multiple, divide, none, dial
 }
 
+
+
 struct ContentView: View {
      
-    @State var value : String = "0" // 결과값
+    @State var displayNumber : String = "0" // 결과값
     @State var tempNumber : Double = 0 // 임시 저장
+    //@State var prevNumber : Double = 0
+    @State var secondNumber : String = "" // 임시 저장
     @State var buttonState : Operator = .none // 버튼 상태
     @State public var isButtonPressed = false
     
@@ -84,11 +88,17 @@ struct ContentView: View {
                     Spacer()
                     HStack{
                         Spacer()
-                        Text(value)
+                        Text(displayNumber)
                             .padding()
                             .foregroundColor(.white)
-                            .font(.system(size: value.count > 6 ? 60 : 82))
+                            .font(.system(size: displayNumber.count > 6 ? 72 : 82))
+                            .minimumScaleFactor(0.8)
                             .lineLimit(1)
+                            .onChange(of: displayNumber) { newValue in
+                                if newValue.count > 9 {
+                                    displayNumber = String(newValue.prefix(9))
+                                }
+                            }
 //                            .truncationMode(.tail)
                     }.frame(maxWidth: 400)
                    
@@ -126,72 +136,112 @@ struct ContentView: View {
         case .plus, .minus,.multiple,.divide,.equal:
             if button == .plus{
                 buttonState = .plus
-                tempNumber = Double(value) ?? 0
+                
+                tempNumber = Double(displayNumber) ?? 0
+                displayNumber = ""
+                secondNumber = ""
             } else if button == .minus {
                 buttonState = .minus
-                tempNumber = Double(value) ?? 0
+                tempNumber = Double(displayNumber) ?? 0
+                displayNumber = ""
+                secondNumber = ""
             } else if button == .multiple {
                 buttonState = .multiple
-                tempNumber = Double(value) ?? 0
+                tempNumber = Double(displayNumber) ?? 0
+                displayNumber = ""
+                secondNumber = ""
             } else if button == .divide {
                 buttonState = .divide
-                tempNumber = Double(value) ?? 0
+                tempNumber = Double(displayNumber) ?? 0
+                displayNumber = ""
+                secondNumber = ""
             } else if button == .equal{
-                let tempNumber = tempNumber
-                let currentNumber = Double(value) ?? 0
+                
+                // var tempNumber = tempNumber // 저장된 숫자
+                var currentNumber = Double(displayNumber) ?? 0 // 현재 입력된 숫자
+                
                 switch buttonState {
                 case .plus:
-                    value = "\(tempNumber + currentNumber)"
-                    value = intOrDouble(value)
+                    displayNumber = "\(tailRound(tempNumber + currentNumber))" // 이전 숫자와 현재 숫자 더하기
+                    displayNumber = intOrDouble(displayNumber) // 정수인지 소수인지 확인
+                    tempNumber = Double(displayNumber) ?? 0 // 숫자 업데이트
+                    
                 case .minus:
-                    value = "\(tempNumber - currentNumber)"
-                    value = intOrDouble(value)
+                    displayNumber = "\(tailRound(tempNumber - currentNumber))"
+                    displayNumber = intOrDouble(displayNumber)
+                    tempNumber = Double(displayNumber) ?? 0
+                    
                 case .multiple:
-                    value = "\(tempNumber * currentNumber)"
-                    value = intOrDouble(value)
+                    displayNumber = "\(tailRound(tempNumber * currentNumber))"
+                    displayNumber = intOrDouble(displayNumber)
+                    tempNumber = Double(displayNumber) ?? 0
+                    
                 case .divide:
-                    value = "\(tempNumber / currentNumber)"
-                    value = intOrDouble(value)
+                    displayNumber = "\(tailRound(tempNumber / currentNumber))"
+                    displayNumber = intOrDouble(displayNumber)
+                    tempNumber = Double(displayNumber) ?? 0
+                   // secondNumber = "\(tempNumber)"
+                    
                 case .dial:
                     break
                 case .none:
                     break
                 }
+                
+                //buttonState = .none
+            
             }
             
             if button != .equal {
-                // 값 초기화
-               // value = "0"
-                value = "\(intOrDouble2(tempNumber))"
-                isButtonPressed = true
-                // 버튼 색상 변화
+                //displayNumber = "0" // 값 초기화
+                displayNumber = intOrDouble2(tempNumber)
+                
+                isButtonPressed = true  // 버튼 색상 변화
                 
             }
+            
         case .opposite:
-            tempNumber = -(Double(value) ?? 0)
-            value = "\(tempNumber)"
+            tempNumber = -(Double(displayNumber) ?? 0)
+            displayNumber = "\(tempNumber)"
         case .percent:
-            tempNumber = Double(value) ?? 0 / 100
-            value = "\(tempNumber)"
+            tempNumber = Double(displayNumber) ?? 0 / 100
+            displayNumber = "\(tempNumber)"
         case .clear:
-            value = "0"
+            tempNumber = 0
+            displayNumber = "0"
+            secondNumber = ""
+            buttonState = .none
+            
         case .dot:
-            if value == "0"{
-                value = "0."
+            if displayNumber == "0"{
+                displayNumber = "0."
             }else{
-                value = "."
+                displayNumber += "."
             }
+        
         default:
             let result = button.rawValue
             switch buttonState {
+                
+            
             case .plus, .minus, .multiple, .divide:
-                 value = result
+                displayNumber = ""
+                secondNumber += result
+                
+//                if secondNumber.count > 1 {
+//                    secondNumber = result
+//                }
+                displayNumber = secondNumber
+ 
             default:
-                if value == "0"{
-                    value = result
-                }else{
+                if displayNumber == "0"{
+                    displayNumber = "\(result)"
+                    displayNumber = intOrDouble(displayNumber)
                     
-                    value += result
+                }else{
+                    displayNumber += "\(result)"
+                    displayNumber = intOrDouble(displayNumber)
+                    
                 }
             }
            

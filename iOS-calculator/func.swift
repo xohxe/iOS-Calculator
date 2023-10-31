@@ -94,3 +94,26 @@ func intOrDouble2(_ input: Double) -> String {
     }
 }
 
+
+
+
+func tailRound( _ input: Double) -> Double{
+    let digit: Double = pow(10,8)
+    return round(input * digit) / digit
+}
+
+func formattedNumber(){
+    //let numberFormatter =
+}
+
+struct Calculator{
+    
+}
+extension Int{
+    func formatterStyle(_ numberStyle: NumberFormatter.Style) -> String?{
+        let numberFormatter : NumberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = numberStyle
+        return numberFormatter.string(for: self)
+        
+    }
+}

@@ -15,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		018DECD82AF0834E00D742AA /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		019301D32AED085400A3CC07 /* func.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = func.swift; sourceTree = "<group>"; };
 		019301D52AED59B400A3CC07 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		1459DF622AE97B4D006B8AF1 /* iOS-calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,6 +61,7 @@
 				1459DF672AE97B4D006B8AF1 /* ContentView.swift */,
 				1459DF692AE97B50006B8AF1 /* Assets.xcassets */,
 				1459DF6B2AE97B50006B8AF1 /* Preview Content */,
+				018DECD82AF0834E00D742AA /* Config.xcconfig */,
 			);
 			path = "iOS-calculator";
 			sourceTree = "<group>";
@@ -153,6 +155,7 @@
 /* Begin XCBuildConfiguration section */
 		1459DF6E2AE97B50006B8AF1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 018DECD82AF0834E00D742AA /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -216,6 +219,7 @@
 		};
 		1459DF6F2AE97B50006B8AF1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 018DECD82AF0834E00D742AA /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
