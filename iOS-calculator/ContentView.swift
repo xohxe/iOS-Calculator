@@ -136,7 +136,6 @@ struct ContentView: View {
         case .plus, .minus,.multiple,.divide,.equal:
             if button == .plus{
                 buttonState = .plus
-                
                 tempNumber = Double(displayNumber) ?? 0
                 displayNumber = ""
                 secondNumber = ""
@@ -156,9 +155,8 @@ struct ContentView: View {
                 displayNumber = ""
                 secondNumber = ""
             } else if button == .equal{
-                
                 // var tempNumber = tempNumber // 저장된 숫자
-                var currentNumber = Double(displayNumber) ?? 0 // 현재 입력된 숫자
+                let currentNumber = Double(displayNumber) ?? 0 // 현재 입력된 숫자
                 
                 switch buttonState {
                 case .plus:
@@ -204,7 +202,7 @@ struct ContentView: View {
             tempNumber = -(Double(displayNumber) ?? 0)
             displayNumber = "\(tempNumber)"
         case .percent:
-            tempNumber = Double(displayNumber) ?? 0 / 100
+            tempNumber = (Double(displayNumber) ?? 0) / 100
             displayNumber = "\(tempNumber)"
         case .clear:
             tempNumber = 0
