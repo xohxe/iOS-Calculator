@@ -12,22 +12,22 @@ iOS 유사하게 UI제작
 
 ### 1-2. 기본 연산 기능
 
-![](/image/calc-basic.gif)
-![](/image/calc-percent.gif)
+![](/demo/calc-basic.gif)
+![](/demo/calc-percent.gif)
 ```
 2 * 2 = 4
 4 + 2 = 6 
 ``` 
 
 ### 1-3. Int,Float 구분하여 출력
-![](/image/calc-double.gif)
+![](/demo/calc-double.gif)
 
 
 ### 1-4. 화면 크기에 따라 버튼 달라지게 구성
 
 아이패드 기기에서는 최대값을 지정하여, 아예 버튼크기가 커지지 않게 조정.
 
-![아이패드](/iOS-calculator/Preview Content/Preview Assets.xcassets/ipad-calc.imageset/ipad-calc.imageset)
+![아이패드](/demo/ipad-calc.png)
 
 ### 1-5. 숫자길이가 길어질 때,글자가 작아지게 표현
  

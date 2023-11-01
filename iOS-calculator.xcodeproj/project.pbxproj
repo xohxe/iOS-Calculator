@@ -10,6 +10,7 @@
 		018B12BC2AF1D65B00C38DF2 /* calc-percent.gif in Resources */ = {isa = PBXBuildFile; fileRef = 018B12B92AF1D65B00C38DF2 /* calc-percent.gif */; };
 		018B12BD2AF1D65B00C38DF2 /* calc-basic.gif in Resources */ = {isa = PBXBuildFile; fileRef = 018B12BA2AF1D65B00C38DF2 /* calc-basic.gif */; };
 		018B12BE2AF1D65B00C38DF2 /* calc-double.gif in Resources */ = {isa = PBXBuildFile; fileRef = 018B12BB2AF1D65B00C38DF2 /* calc-double.gif */; };
+		018B12C02AF1D7B700C38DF2 /* ipad-calc.png in Resources */ = {isa = PBXBuildFile; fileRef = 018B12BF2AF1D7B700C38DF2 /* ipad-calc.png */; };
 		019301D42AED085400A3CC07 /* func.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019301D32AED085400A3CC07 /* func.swift */; };
 		1459DF662AE97B4D006B8AF1 /* iOS_calculatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1459DF652AE97B4D006B8AF1 /* iOS_calculatorApp.swift */; };
 		1459DF682AE97B4D006B8AF1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1459DF672AE97B4D006B8AF1 /* ContentView.swift */; };
@@ -21,6 +22,7 @@
 		018B12B92AF1D65B00C38DF2 /* calc-percent.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "calc-percent.gif"; sourceTree = "<group>"; };
 		018B12BA2AF1D65B00C38DF2 /* calc-basic.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "calc-basic.gif"; sourceTree = "<group>"; };
 		018B12BB2AF1D65B00C38DF2 /* calc-double.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "calc-double.gif"; sourceTree = "<group>"; };
+		018B12BF2AF1D7B700C38DF2 /* ipad-calc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipad-calc.png"; sourceTree = "<group>"; };
 		018DECD82AF0834E00D742AA /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		019301D32AED085400A3CC07 /* func.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = func.swift; sourceTree = "<group>"; };
 		019301D52AED59B400A3CC07 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -42,20 +44,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		018B12B82AF1D63300C38DF2 /* image */ = {
+		018B12B82AF1D63300C38DF2 /* demo */ = {
 			isa = PBXGroup;
 			children = (
+				018B12BF2AF1D7B700C38DF2 /* ipad-calc.png */,
 				018B12BB2AF1D65B00C38DF2 /* calc-double.gif */,
 				018B12BA2AF1D65B00C38DF2 /* calc-basic.gif */,
 				018B12B92AF1D65B00C38DF2 /* calc-percent.gif */,
 			);
-			path = image;
+			path = demo;
 			sourceTree = "<group>";
 		};
 		1459DF592AE97B4D006B8AF1 = {
 			isa = PBXGroup;
 			children = (
 				019301D52AED59B400A3CC07 /* README.md */,
+				018B12B82AF1D63300C38DF2 /* demo */,
 				1459DF642AE97B4D006B8AF1 /* iOS-calculator */,
 				1459DF632AE97B4D006B8AF1 /* Products */,
 			);
@@ -76,7 +80,6 @@
 				019301D32AED085400A3CC07 /* func.swift */,
 				1459DF672AE97B4D006B8AF1 /* ContentView.swift */,
 				1459DF692AE97B50006B8AF1 /* Assets.xcassets */,
-				018B12B82AF1D63300C38DF2 /* image */,
 				1459DF6B2AE97B50006B8AF1 /* Preview Content */,
 				018DECD82AF0834E00D742AA /* Config.xcconfig */,
 			);
@@ -151,6 +154,7 @@
 			files = (
 				018B12BD2AF1D65B00C38DF2 /* calc-basic.gif in Resources */,
 				1459DF6D2AE97B50006B8AF1 /* Preview Assets.xcassets in Resources */,
+				018B12C02AF1D7B700C38DF2 /* ipad-calc.png in Resources */,
 				018B12BE2AF1D65B00C38DF2 /* calc-double.gif in Resources */,
 				1459DF6A2AE97B50006B8AF1 /* Assets.xcassets in Resources */,
 				018B12BC2AF1D65B00C38DF2 /* calc-percent.gif in Resources */,
