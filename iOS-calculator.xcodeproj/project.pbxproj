@@ -11,6 +11,7 @@
 		018B12BD2AF1D65B00C38DF2 /* calc-basic.gif in Resources */ = {isa = PBXBuildFile; fileRef = 018B12BA2AF1D65B00C38DF2 /* calc-basic.gif */; };
 		018B12BE2AF1D65B00C38DF2 /* calc-double.gif in Resources */ = {isa = PBXBuildFile; fileRef = 018B12BB2AF1D65B00C38DF2 /* calc-double.gif */; };
 		018B12C02AF1D7B700C38DF2 /* ipad-calc.png in Resources */ = {isa = PBXBuildFile; fileRef = 018B12BF2AF1D7B700C38DF2 /* ipad-calc.png */; };
+		018B12C22AF20DDE00C38DF2 /* button-active.png in Resources */ = {isa = PBXBuildFile; fileRef = 018B12C12AF20DDE00C38DF2 /* button-active.png */; };
 		019301D42AED085400A3CC07 /* func.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019301D32AED085400A3CC07 /* func.swift */; };
 		1459DF662AE97B4D006B8AF1 /* iOS_calculatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1459DF652AE97B4D006B8AF1 /* iOS_calculatorApp.swift */; };
 		1459DF682AE97B4D006B8AF1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1459DF672AE97B4D006B8AF1 /* ContentView.swift */; };
@@ -23,6 +24,7 @@
 		018B12BA2AF1D65B00C38DF2 /* calc-basic.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "calc-basic.gif"; sourceTree = "<group>"; };
 		018B12BB2AF1D65B00C38DF2 /* calc-double.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "calc-double.gif"; sourceTree = "<group>"; };
 		018B12BF2AF1D7B700C38DF2 /* ipad-calc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipad-calc.png"; sourceTree = "<group>"; };
+		018B12C12AF20DDE00C38DF2 /* button-active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-active.png"; sourceTree = "<group>"; };
 		018DECD82AF0834E00D742AA /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		019301D32AED085400A3CC07 /* func.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = func.swift; sourceTree = "<group>"; };
 		019301D52AED59B400A3CC07 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -48,6 +50,7 @@
 			isa = PBXGroup;
 			children = (
 				018B12BF2AF1D7B700C38DF2 /* ipad-calc.png */,
+				018B12C12AF20DDE00C38DF2 /* button-active.png */,
 				018B12BB2AF1D65B00C38DF2 /* calc-double.gif */,
 				018B12BA2AF1D65B00C38DF2 /* calc-basic.gif */,
 				018B12B92AF1D65B00C38DF2 /* calc-percent.gif */,
@@ -154,6 +157,7 @@
 			files = (
 				018B12BD2AF1D65B00C38DF2 /* calc-basic.gif in Resources */,
 				1459DF6D2AE97B50006B8AF1 /* Preview Assets.xcassets in Resources */,
+				018B12C22AF20DDE00C38DF2 /* button-active.png in Resources */,
 				018B12C02AF1D7B700C38DF2 /* ipad-calc.png in Resources */,
 				018B12BE2AF1D65B00C38DF2 /* calc-double.gif in Resources */,
 				1459DF6A2AE97B50006B8AF1 /* Assets.xcassets in Resources */,

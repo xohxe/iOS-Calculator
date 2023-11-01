@@ -14,8 +14,8 @@
             filePath = "iOS-calculator/ContentView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "129"
-            endingLineNumber = "129"
+            startingLineNumber = "139"
+            endingLineNumber = "139"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -30,8 +30,8 @@
             filePath = "iOS-calculator/ContentView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -66,6 +66,54 @@
             endingLineNumber = "76"
             landmarkName = "intOrDouble(_:)"
             landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8EDE6BBF-711D-4663-A2A7-481DA3061D60"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iOS-calculator/ContentView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "8EDE6BBF-711D-4663-A2A7-481DA3061D60 - daba4e242c3122b3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.ignoresSafeArea(_: SwiftUI.SafeAreaRegions, edges: SwiftUI.Edge.Set) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0)&gt; in iOS_calculator.ContentView.body.getter : some"
+                  moduleName = "iOS-calculator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/xohxe/Library/Mobile%20Documents/com~apple~CloudDocs/Xcode/iOS-calculator/iOS-calculator/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "89"
+                  endingLineNumber = "89"
+                  offsetFromSymbolStart = "628">
+               </Location>
+               <Location
+                  uuid = "8EDE6BBF-711D-4663-A2A7-481DA3061D60 - bc17363b8ed69a92"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.Spacer, &lt;&lt;opaque return type of SwiftUI.View.frame(minWidth: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, idealWidth: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, maxWidth: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, minHeight: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, idealHeight: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, maxHeight: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0, SwiftUI.ForEach&lt;Swift.Array&lt;Swift.Array&lt;iOS_calculator.ButtonType&gt;&gt;, Swift.Array&lt;iOS_calculator.ButtonType&gt;, SwiftUI.HStack&lt;SwiftUI.ForEach&lt;Swift.Array&lt;iOS_calculator.ButtonType&gt;, iOS_calculator.ButtonType, SwiftUI.Button&lt;&lt;&lt;opaque return type of SwiftUI.View.fontWeight(Swift.Optional&lt;SwiftUI.Font.Weight&gt;) -&gt; some&gt;&gt;.0&gt;&gt;&gt;&gt;)&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.ignoresSafeArea(_: SwiftUI.SafeAreaRegions, edges: SwiftUI.Edge.Set) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0)&gt; in iOS_calculator.ContentView.body.getter : some"
+                  moduleName = "iOS-calculator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/xohxe/Library/Mobile%20Documents/com~apple~CloudDocs/Xcode/iOS-calculator/iOS-calculator/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "90"
+                  endingLineNumber = "90"
+                  offsetFromSymbolStart = "424">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -102,18 +102,23 @@ func tailRound( _ input: Double) -> Double{
     return round(input * digit) / digit
 }
 
-func formattedNumber(){
-    //let numberFormatter =
-}
 
-struct Calculator{
-    
-}
+   
+
+
 extension Int{
     func formatterStyle(_ numberStyle: NumberFormatter.Style) -> String?{
         let numberFormatter : NumberFormatter = NumberFormatter()
         numberFormatter.numberStyle = numberStyle
         return numberFormatter.string(for: self)
         
+    }
+}
+
+extension Double {
+    func formatterStyle(_ numberStyle: NumberFormatter.Style) -> String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = numberStyle
+        return numberFormatter.string(for: self) ?? ""
     }
 }

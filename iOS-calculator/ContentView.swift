@@ -31,16 +31,18 @@ enum ButtonType : String{
     case allClear = "AC"
     
     // 배경색
-    var backgroundColor : Color {
+    var backgroundColor: Color {
         switch self {
         case .one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .zero, .dot:
             return Color("NumberButton")
         case .plus,.minus,.multiple, .divide,.equal:
-           return Color.orange
+            return Color.orange
         case .clear, .opposite, .percent, .allClear:
             return Color.gray
         }
     }
+    
+ 
   
     // 글자색
     var forgroundColor : Color {
@@ -68,7 +70,8 @@ struct ContentView: View {
     //@State var prevNumber : Double = 0
     @State var secondNumber : String = "" // 임시 저장
     @State var buttonState : Operator = .none // 버튼 상태
-    @State public var isButtonPressed = false
+    @State var selectedOperator: ButtonType? = nil
+    
     
     private let buttonData: [[ButtonType]] = [
         [.clear, .opposite,.percent,.divide],
@@ -78,9 +81,8 @@ struct ContentView: View {
         [.zero,.dot,.equal]
     ]
     
-    
+ 
     var body: some View {
-     
             ZStack{
                 Color.black.ignoresSafeArea()
                 
@@ -91,13 +93,17 @@ struct ContentView: View {
                         Text(displayNumber)
                             .padding()
                             .foregroundColor(.white)
-                            .font(.system(size: displayNumber.count > 6 ? 72 : 82))
-                            .minimumScaleFactor(0.8)
+                            .font(.system(size: 82))
+                            .minimumScaleFactor(0.7)
                             .lineLimit(1)
                             .onChange(of: displayNumber) { newValue in
                                 if newValue.count > 9 {
                                     displayNumber = String(newValue.prefix(9))
                                 }
+//                                if let numberValue = Double(displayNumber){
+//                                    let formattedNumber = numberValue.formatterStyle(.decimal)
+//                                    displayNumber = formattedNumber
+//                                }
                             }
 //                            .truncationMode(.tail)
                     }.frame(maxWidth: 400)
@@ -110,13 +116,17 @@ struct ContentView: View {
                                     self.pressBtn(button: item)
                                 } label: {
                                     Text(item.rawValue)
-                                        .frame(width: responsiveBtnWidth(button: item), height: responsiveBtnHeight(button: item) )
-                                        .background(item.backgroundColor)
+                                        .frame(width: responsiveBtnWidth(button: item), height: responsiveBtnHeight(button: item))
+                                        .background(item == selectedOperator ? .white : item.backgroundColor)
                                         .cornerRadius(responsiveBtnHeight(button: item)/2)
-                                       .foregroundColor(item.forgroundColor)
-                                       .font(.system(size: 36))
-                                       .fontWeight(.semibold)
+                                        .foregroundColor(item == selectedOperator ? .orange : item.forgroundColor)
+                                        .font(.system(size: 36))
+                                        .fontWeight(.semibold)
+                                       
+ 
+                                    
                                }
+                              
                             }
                         }
                     }
@@ -127,35 +137,39 @@ struct ContentView: View {
             
         }
     }
-    
-    
-  
+      
+ 
     func pressBtn(button: ButtonType){
         switch button{
      
         case .plus, .minus,.multiple,.divide,.equal:
             if button == .plus{
                 buttonState = .plus
+                selectedOperator = .plus
                 tempNumber = Double(displayNumber) ?? 0
                 displayNumber = ""
                 secondNumber = ""
             } else if button == .minus {
                 buttonState = .minus
+                selectedOperator = .minus
                 tempNumber = Double(displayNumber) ?? 0
                 displayNumber = ""
                 secondNumber = ""
             } else if button == .multiple {
                 buttonState = .multiple
+                selectedOperator = .multiple
                 tempNumber = Double(displayNumber) ?? 0
                 displayNumber = ""
                 secondNumber = ""
             } else if button == .divide {
                 buttonState = .divide
+                selectedOperator = .divide
                 tempNumber = Double(displayNumber) ?? 0
                 displayNumber = ""
                 secondNumber = ""
             } else if button == .equal{
                 // var tempNumber = tempNumber // 저장된 숫자
+                selectedOperator = .none
                 let currentNumber = Double(displayNumber) ?? 0 // 현재 입력된 숫자
                 
                 switch buttonState {
@@ -178,24 +192,15 @@ struct ContentView: View {
                     displayNumber = "\(tailRound(tempNumber / currentNumber))"
                     displayNumber = intOrDouble(displayNumber)
                     tempNumber = Double(displayNumber) ?? 0
-                   // secondNumber = "\(tempNumber)"
-                    
                 case .dial:
                     break
                 case .none:
                     break
                 }
-                
-                //buttonState = .none
-            
             }
             
             if button != .equal {
-                //displayNumber = "0" // 값 초기화
                 displayNumber = intOrDouble2(tempNumber)
-                
-                isButtonPressed = true  // 버튼 색상 변화
-                
             }
             
         case .opposite:
@@ -219,27 +224,22 @@ struct ContentView: View {
         
         default:
             let result = button.rawValue
+           
             switch buttonState {
-                
-            
             case .plus, .minus, .multiple, .divide:
                 displayNumber = ""
                 secondNumber += result
-                
-//                if secondNumber.count > 1 {
-//                    secondNumber = result
-//                }
                 displayNumber = secondNumber
- 
             default:
                 if displayNumber == "0"{
                     displayNumber = "\(result)"
-                    displayNumber = intOrDouble(displayNumber)
+                   // displayNumber = intOrDouble(displayNumber)
                     
                 }else{
-                    displayNumber += "\(result)"
-                    displayNumber = intOrDouble(displayNumber)
                     
+                    displayNumber += "\(result)"
+                    //displayNumber = intOrDouble(displayNumber)
+                   // print(displayNumber)
                 }
             }
            
@@ -247,7 +247,10 @@ struct ContentView: View {
         
     }
  
+ 
     
+  
+
     
     
 }
